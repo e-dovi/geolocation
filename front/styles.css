@@ -1,0 +1,37 @@
+.address{
+    margin:.1%;
+    padding: .5%;
+    width:30%
+}
+
+.submit{
+    margin-top: .5%;
+}
+
+.label{
+    font-family: monospace;
+    font-size: larger;
+}
+
+.title{
+    text-align: center;
+    font-family: monospace;
+}
+
+.main{
+    text-align: center;
+}
+
+#result{
+    font-family: monospace;
+    font-size: large;
+    text-align: center;
+    margin: 1%;
+} 
+
+#error{
+    font-family: monospace;
+    font-size: large;
+    text-align: center;
+    margin: 1%;
+}

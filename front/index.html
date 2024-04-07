@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/fcf40d9d96.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h2 class="title">Sort by distance.</h2>
+<div class="main">
+<form id="main-form">
+  <label class="label">Location</label><br>
+  <input type="text" placeholder="Address or street name"  name="location" class="address" required><br><br>
+  <label class="label">Addresses</label><br>
+  <input type="text" placeholder="Address or street name" name="address1" class="address" required><br>
+  <input type="text" placeholder="Address or street name" name="address2" class="address" required><br>
+</form> 
+  <button onclick="handleSubmit()" id="submit-button">Submit</button>
+  <button id="add" class="submit">Add another address</button>
+</div>
+<div id="result"></div>
+<div id="error"></div>
+
+</body>
+<script src="script.js"></script>
+</html>
+

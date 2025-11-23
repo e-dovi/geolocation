@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express')
 const app = express();
@@ -6,6 +7,7 @@ const path = require('path');
 const multer = require('multer');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json())
@@ -33,30 +35,25 @@ const verifyToken = (req, res, next) => {
 }
 
 app.get('/', (req, res) => {
+  const date = new Date();
+  const ip = req.ip || "unknown";
+  const userAgent = req.headers['user-agent'] || "unknown";
 
-  const date = new Date()
-  const ip = req.ip;
+  // Payload now includes IP + User-Agent
+  const data = { ip, userAgent, date };
 
-  if(ip){
-    const data = {ip, date};
-  //console.log(`data: ${data}`);
+  // Sign JWT with secret
+  const token = jwt.sign(data, process.env.JWT_SECRET);
 
-
-  var token = jwt.sign(data, process.env.JWT_SECRET);
-  console.log(token);
-
+  // Set cookie with token
   res.cookie('access_token', 'Bearer ' + token, {
-    expires: new Date(Date.now() + 300000), // cookie will be removed after 8 hours
-    httpOnly:true
-  })
+    expires: new Date(Date.now() + 300000), // 5 minutes
+    httpOnly: true
+  });
 
   res.sendFile(path.join(__dirname, 'front', 'index.html'));
-  }
-
-  else{
-    res.sendStatus(403);
-  }
 });
+
 
 
 app.use(express.static(path.join(__dirname, 'front')));
@@ -82,8 +79,6 @@ app.post('/submit', verifyToken, upload.none(), (req, res) => {
 
 app.post('/sort', upload.none(), verifyToken, (req, res) => {
     
-   
-
     const ar = Object.values(req.body);
     const pos = ar.shift();
     console.log(ar);
@@ -97,9 +92,8 @@ app.post('/sort', upload.none(), verifyToken, (req, res) => {
        
     })
     
-
-const PORT = process.env.PORT || 5000
-app.listen(PORT, ()=>{
+const PORT = process.env.PORT
+app.listen(PORT, () => {
     console.log(`Listening on port ${PORT} ...`)
 })
 

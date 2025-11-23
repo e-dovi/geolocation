@@ -1,14 +1,14 @@
 # Distance Sorting
 
-This project allows users to sort various addresses by distance from a certain location.
+This project allows users to sort various addresses by distance from a chosen location.
 
 ### `npm install`
 
-npm install can be run to install all the dependencies of the project.
+run npm install to install all dependencies.
 
 ### `node index.js`
 
-This command starts the project locally on port 5000.
+Start the server locally on port 5000.
 
 ### `Environment variables`
 
@@ -16,11 +16,11 @@ This command starts the project locally on port 5000.
 This variable expects the Radar API Key.
 
 #### JWT_KEY
-This variable expects the JWT secret to be used to sign and verify data.
+This variable expects the JWT secret to sign and verify data.
 
 
 
-Copyright (c) 2024 elvis dovi
+Copyright (c) 2025 elvis dovi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

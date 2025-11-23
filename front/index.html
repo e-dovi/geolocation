@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/fcf40d9d96.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bot-detector"></script>
-
+  <meta charset="UTF-8">
+  <title>Geolocation Sorter</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/fcf40d9d96.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <header>
+    <h2 class="title">Sort by Distance</h2>
+  </header>
 
-<h2 class="title">Sort by distance.</h2>
-<div class="main">
-<form id="main-form">
-  <label class="label">Location</label><br>
-  <input type="text" placeholder="Address or street name"  name="location" class="address" required><br><br>
-  <label class="label">Addresses</label><br>
-  <input type="text" placeholder="Address or street name" name="address1" class="address" required><br>
-  <input type="text" placeholder="Address or street name" name="address2" class="address" required><br>
-</form> 
-  <button onclick="handleSubmit()" id="submit-button">Submit</button>
-  <button id="add" class="submit">Add another address</button>
-</div>
-<div id="result"></div>
-<div id="error"></div>
+  <main class="main">
+    <form id="main-form">
+      <label class="label" for="location">Location</label><br>
+      <input type="text" id="location" name="location" class="address" placeholder="Address or street name" required><br><br>
 
+      <label class="label">Addresses</label><br>
+      <input type="text" name="address1" class="address" placeholder="Address or street name" required><br>
+      <input type="text" name="address2" class="address" placeholder="Address or street name" required><br>
+    </form>
+
+    <div class="buttons">
+      <button onclick="handleSubmit()" id="submit-button" type="button">Submit</button>
+      <button id="add" class="submit" type="button">Add another address</button>
+    </div>
+
+    <div id="result"></div>
+    <div id="error"></div>
+  </main>
+
+  <!-- Your main script -->
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
-
